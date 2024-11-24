@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Parte 2</title>
+</head>
+
+<body>
+    <h1>Bem-vindo ao JavaScript parte 2!</h1>
+
+    <script>
+
+/*
+
+1. Verificação de múltiplos números
+
+let primeiroNumero = Number(prompt("Digite o primeiro número:"));
+let segundoNumero = Number(prompt("Digite o segundo número:"));
+let terceiroNumero = Number(prompt("Digite o terceiro número:"));
+
+if (primeiroNumero > 0 && segundoNumero > 0 && terceiroNumero > 0) {
+    console.log("Todos os números são positivos.");
+} else {
+    console.log("Nem todos os números são positivos.");
+}
+
+
+2. Calculadora simples
+
+let numeroA = Number(prompt("Digite o primeiro número:"));
+let numeroB = Number(prompt("Digite o segundo número:"));
+let operacaoMatematica = prompt("Digite a operação (+, -, *, /):");
+
+if (operacaoMatematica === "+") {
+    console.log("Resultado:", numeroA + numeroB);
+} else if (operacaoMatematica === "-") {
+    console.log("Resultado:", numeroA - numeroB);
+} else if (operacaoMatematica === "*") {
+    console.log("Resultado:", numeroA * numeroB);
+} else if (operacaoMatematica === "/") {
+    if (numeroB !== 0) {
+        console.log("Resultado:", numeroA / numeroB);
+    } else {
+        console.log("Divisão por zero não é permitida.");
+    }
+} else {
+    console.log("Operação inválida.");
+}
+
+
+3. Número no intervalo
+
+let numeroUsuario = Number(prompt("Digite um número:"));
+
+if (numeroUsuario >= 50 && numeroUsuario <= 100) {
+    console.log("O número está entre 50 e 100.");
+} else {
+    console.log("O número não está entre 50 e 100.");
+}
+
+
+
+4. Desconto em compras
+
+let valorCompra = Number(prompt("Digite o valor total da compra:"));
+
+if (valorCompra > 100) {
+    let valorComDescontoAplicado = valorCompra * 0.9;
+    console.log(`Valor com desconto: R$${valorComDescontoAplicado.toFixed(2)}`);
+} else {
+    console.log(`Valor sem desconto: R$${valorCompra.toFixed(2)}`);
+}
+
+
+5. Classificação por altura
+
+let alturaPessoa = Number(prompt("Digite sua altura em cm:"));
+
+if (alturaPessoa < 150) {
+    console.log("Baixa");
+} else if (alturaPessoa <= 180) {
+    console.log("Média");
+} else {
+    console.log("Alta");
+}
+
+
+6. Verificação de senha
+
+let senhaUsuario = prompt("Digite a senha:");
+
+if (senhaUsuario === "1234") {
+    console.log("Acesso permitido.");
+} else {
+    console.log("Acesso negado.");
+}
+
+
+7. Par ou ímpar com extra
+
+let numeroParaVerificar = Number(prompt("Digite um número:"));
+
+if (numeroParaVerificar % 2 === 0) {
+    console.log("O número é par.");
+} else {
+    console.log("O número é ímpar.");
+    if (numeroParaVerificar > 50) {
+        console.log("Número especial.");
+    }
+}
+
+
+8. Classificação etária completa
+
+let idadePessoa = Number(prompt("Digite sua idade:"));
+
+if (idadePessoa <= 12) {
+    console.log("Criança");
+} else if (idadePessoa <= 17) {
+    console.log("Adolescente");
+} else if (idadePessoa <= 64) {
+    console.log("Adulto");
+} else {
+    console.log("Idoso");
+}
+
+
+9. Jogo de adivinhação
+
+let numeroSorteado = 7; // Número pré-definido
+let numeroTentativa = Number(prompt("Adivinhe um número entre 1 e 10:"));
+
+if (numeroTentativa === numeroSorteado) {
+    console.log("Parabéns, você acertou!");
+} else {
+    console.log("Tente novamente!");
+}
+
+
+10. Avaliação de desempenho
+
+let notaEstudante = Number(prompt("Digite sua nota (0 a 10):"));
+
+if (notaEstudante >= 0 && notaEstudante <= 4) {
+    console.log("Ruim");
+} else if (notaEstudante <= 7) {
+    console.log("Bom");
+} else if (notaEstudante <= 10) {
+    console.log("Excelente");
+} else {
+    console.log("Nota inválida.");
+}
+
+
+*/
+        //Desafio Final: Calculadora de Média
+
+        // Entrada de dados
+        let nomeDoCandidato = prompt("Digite seu nome:")
+        let idade = parseInt(prompt("Digite sua idade:"))
+        let pontuacaoProvaTecnica = parseFloat(prompt("Digite a pontuação da prova técnica (0 a 10):"))
+        let pontuacaoEntrevista = parseFloat(prompt("Digite a pontuação da entrevista (0 a 10):"))
+
+
+        // Verificação das pontuações para garantir que estão dentro de 0 a 10
+        if (isNaN(pontuacaoProvaTecnica) || pontuacaoProvaTecnica < 0 || pontuacaoProvaTecnica > 10) {
+            alert("Número inválido! A pontuação da prova técnica deve estar entre 0 e 10.");
+        } else if (isNaN(pontuacaoEntrevista) || pontuacaoEntrevista < 0 || pontuacaoEntrevista > 10) {
+            alert("Número inválido! A pontuação da entrevista deve estar entre 0 e 10.");
+        } else {   
+            
+            // Verificação de critérios
+
+            if (idade < 18) {
+                alert(`Desculpe, ${nomeDoCandidato}, você não atende aos critérios de idade.`);
+            } else if (pontuacaoProvaTecnica < 7) {
+                alert(`Desculpe, ${nomeDoCandidato}, sua pontuação na prova técnica foi insuficiente.`);
+            } else if (pontuacaoEntrevista < 6) {
+                alert(`Desculpe, ${nomeDoCandidato}, sua pontuação na entrevista foi insuficiente.`);
+            } else {
+                // Cálculo da média
+                let media = (pontuacaoProvaTecnica + pontuacaoEntrevista) / 2;
+
+                if (media >= 8) {
+                    alert(`Parabéns, ${nomeDoCandidato}! Você foi aprovado para a vaga.`);
+                    alert("Você é Altamente Qualificado!");
+                } else {
+                    alert(`Parabéns, ${nomeDoCandidato}! Você foi aprovado para a vaga.`);
+                }
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>
